@@ -151,7 +151,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:drawableLeft="@drawable/anger"
+        android:drawableLeft="@drawable/anger_icon"
         android:text="Anger"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
