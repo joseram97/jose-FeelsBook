@@ -53,109 +53,95 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
-        android:id="@+id/JoyButton"
-        android:layout_width="@android:dimen/app_icon_size"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/ContentDescription_JoyButton"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Home_Title"
-        app:srcCompat="@drawable/joy" />
-
-    <ImageButton
+    <Button
         android:id="@+id/AngerButton"
-        android:layout_width="@android:dimen/app_icon_size"
-        android:layout_height="@android:dimen/app_icon_size"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/ContentDescription_AngerButton"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toStartOf="@+id/FearButton"
-        app:layout_constraintStart_toEndOf="@+id/JoyButton"
-        app:layout_constraintTop_toBottomOf="@+id/Home_Title"
-        app:srcCompat="@drawable/anger" />
-
-    <ImageButton
-        android:id="@+id/FearButton"
-        android:layout_width="47dp"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/ContentDescription_FearButton"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Home_Title"
-        app:srcCompat="@drawable/fear" />
-
-    <ImageButton
-        android:id="@+id/LoveButton"
-        android:layout_width="@android:dimen/app_icon_size"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/ContentDescription_LoveButton"
-        android:scaleType="fitXY"
+        android:drawableStart="@drawable/anger_icon"
+        android:drawableLeft="@drawable/anger_icon"
+        android:text="Anger"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/JoyButton"
-        app:srcCompat="@drawable/love" />
+        app:layout_constraintTop_toBottomOf="@+id/Home_Title"
+        tools:text="Anger" />
 
-    <ImageButton
-        android:id="@+id/SadButton"
-        android:layout_width="@android:dimen/app_icon_size"
-        android:layout_height="@android:dimen/app_icon_size"
+    <Button
+        android:id="@+id/LoveButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:drawableStart="@drawable/love_icon"
+        android:drawableLeft="@drawable/love_icon"
+        android:text="Love"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Home_Title" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/ContentDescription_SadButton"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toStartOf="@+id/SurpriseButton"
-        app:layout_constraintStart_toEndOf="@+id/LoveButton"
-        app:layout_constraintTop_toBottomOf="@+id/AngerButton"
-        app:srcCompat="@drawable/sadness" />
-
-    <ImageButton
-        android:id="@+id/SurpriseButton"
-        android:layout_width="@android:dimen/app_icon_size"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/ContentDescription_SurpriseButton"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FearButton"
-        app:srcCompat="@drawable/surprise" />
+        android:drawableStart="@drawable/sad_icon"
+        android:drawableLeft="@drawable/sad_icon"
+        android:text="Sad"
+        app:layout_constraintEnd_toStartOf="@+id/LoveButton"
+        app:layout_constraintStart_toEndOf="@+id/AngerButton"
+        app:layout_constraintTop_toBottomOf="@+id/Home_Title" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
-        android:layout_height="@android:dimen/app_icon_size"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:drawableStart="@drawable/surprise_icon"
+        android:drawableLeft="@drawable/surprise_icon"
+        android:text="Surprise"
+        app:layout_constraintBottom_toTopOf="@+id/CommentExplain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AngerButton" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:drawableLeft="@drawable/anger_icon"
-        android:text="Anger"
+        android:layout_marginBottom="16dp"
+        android:drawableStart="@drawable/joy_icon"
+        android:drawableLeft="@drawable/joy_icon"
+        android:text="Joy"
+        app:layout_constraintBottom_toTopOf="@+id/CommentExplain"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:drawableStart="@drawable/fear_icon"
+        android:drawableLeft="@drawable/fear_icon"
+        android:text="Fear"
+        app:layout_constraintBottom_toTopOf="@+id/CommentExplain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="277dp"
-        tools:text="Anger" />
+        app:layout_constraintTop_toBottomOf="@+id/LoveButton" />
 
 </android.support.constraint.ConstraintLayout>
