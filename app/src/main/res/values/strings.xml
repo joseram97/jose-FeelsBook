@@ -9,4 +9,10 @@
     <string name="ContentDescription_SurpriseButton">This is the surprise button</string>
     <string name="ContentDescription_SadButton">This is the sadness button</string>
     <string name="ContentDescription_LoveButton">This is the love button</string>
+    <string name="JoyButtonText">Joy</string>
+    <string name="SadButtonText">Sad</string>
+    <string name="FearButtonText">Fear</string>
+    <string name="AngerButtonText">Anger</string>
+    <string name="SurpriseButtonText">Surprise</string>
+    <string name="LoveButtonText">Love</string>
 </resources>
