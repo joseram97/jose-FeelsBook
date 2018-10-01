@@ -9,5 +9,8 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // Here we are going to load all of the buttons showing all the emotions that can be added
+        // to the emotion history list
     }
 }

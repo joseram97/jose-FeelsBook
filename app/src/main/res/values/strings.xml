@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">jose-FeelsBook</string>
+    <string name="Home_title">Welcome to FeelsBook!</string>
+    <string name="Comment_Explanation">If you wish to add a comment before submitting an emotion,
+        please write it in the text box below</string>
 </resources>
