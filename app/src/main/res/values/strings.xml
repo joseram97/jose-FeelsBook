@@ -3,4 +3,10 @@
     <string name="Home_title">Welcome to FeelsBook!</string>
     <string name="Comment_Explanation">If you wish to add a comment before submitting an emotion,
         please write it in the text box below</string>
+    <string name="ContentDescription_JoyButton">This is the joy button</string>
+    <string name="ContentDescription_AngerButton">This is the anger button</string>
+    <string name="ContentDescription_FearButton">This is the fear button</string>
+    <string name="ContentDescription_SurpriseButton">This is the surprise button</string>
+    <string name="ContentDescription_SadButton">This is the sadness button</string>
+    <string name="ContentDescription_LoveButton">This is the love button</string>
 </resources>
