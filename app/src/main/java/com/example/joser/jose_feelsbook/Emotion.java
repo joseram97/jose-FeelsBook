@@ -9,9 +9,10 @@ package com.example.joser.jose_feelsbook;
 
 import java.util.Date;
 
-public abstract class Emotion {
+public class Emotion {
     private Date TimeStamp;
     private String comment;
+    private String type;
 
     public Emotion() {
         // Set the default date of the emotion
