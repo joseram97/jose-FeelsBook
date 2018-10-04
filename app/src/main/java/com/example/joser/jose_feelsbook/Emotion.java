@@ -9,18 +9,26 @@ package com.example.joser.jose_feelsbook;
 
 import java.util.Date;
 
+/**
+ * Public class emotion. It will represent the emotion and carry the comments and date of the
+ * emotion to be viewed later*/
 public class Emotion {
     private Date TimeStamp;
     private String comment;
-    private String type;
+    private String type; // Can be ANGER, SADNESS, JOY, FEAR, SURPRISE, and LOVE
 
-    public Emotion() {
+    public Emotion(String type, String comment) {
         // Set the default date of the emotion
         this.TimeStamp = new Date();
+        this.type = type;
+        this.comment = comment;
+
     }
 
-    public Emotion(Date date){
+    public Emotion(String type, String comment, Date date){
         this.TimeStamp = date;
+        this.type = type;
+        this.comment = comment;
     }
 
     public void setDate(Date date) {
@@ -32,16 +40,32 @@ public class Emotion {
     }
 
     // Setting comments to the emotion object for use in a list
-    public void setComments(String comment) throws TooLongComment {
-        if (comment.length() > 100){
-            throw new TooLongComment("Comment is too long");
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getComment() {
+        return this.comment;
+    }
+
+    // Idea taken from https://eclass.srv.ualberta.ca/mod/forum/discuss.php?d=1045897
+    // 2018-10-03 6:09PM
+    /**
+     * Compares the type of this emotion to that of another
+     *
+     * @params Emotion emotion
+     * @returns boolean*/
+    public boolean Matches(Emotion emotion){
+        if(this.type == emotion.type){
+            return true;
         }
-        else {
-            this.comment = comment;
+        else{
+            return false;
         }
     }
 
-    public String getComments() {
-        return this.comment;
+    public String toString() {
+        return "I feel " + this.type + " | " + this.TimeStamp + " | \nComment:" + this.comment;
     }
+
 }
