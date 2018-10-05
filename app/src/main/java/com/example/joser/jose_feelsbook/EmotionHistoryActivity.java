@@ -1,6 +1,5 @@
 package com.example.joser.jose_feelsbook;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,11 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class EmotionHistoryActivity extends AppCompatActivity {
     private ListView historyList;
@@ -29,9 +23,9 @@ public class EmotionHistoryActivity extends AppCompatActivity {
         // Idea taken from:
         // https://stackoverflow.com/questions/8846707/how-to-implement-a-long-click-listener-on-a-listview
         // 2018-10-04 10:41PM
-        historyList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        historyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // this will allow the edit pop-up dialog show
                 // idea taken from:
                 // https://stackoverflow.com/questions/7073577/how-to-get-object-from-listview-in-setonitemclicklistener-in-android
@@ -39,7 +33,6 @@ public class EmotionHistoryActivity extends AppCompatActivity {
                 Model_Emotion.emotionEditListPostion = position;
                 Intent popup = new Intent(EmotionHistoryActivity.this, EmotionEditPopUp.class);
                 startActivity(popup);
-                return false;
             }
         });
     }
