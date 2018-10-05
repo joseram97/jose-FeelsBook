@@ -15,4 +15,7 @@
     <string name="AngerButtonText">Anger</string>
     <string name="SurpriseButtonText">Surprise</string>
     <string name="LoveButtonText">Love</string>
+    <string name="EditPopupTitle">Edit Emotion</string>
+    <string name="EditPopupExplainTextView">You can edit the emotion properties by changing
+                                            any of the values below</string>
 </resources>

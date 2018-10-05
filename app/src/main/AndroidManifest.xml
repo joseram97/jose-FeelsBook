@@ -19,7 +19,8 @@
         <activity
             android:name=".EmotionHistoryActivity"
             android:parentActivityName=".HomeActivity" />
-        <activity android:name=".EmotionEditPopUp"></activity>
+        <activity android:name=".EmotionEditPopUp"
+            android:theme="@style/AppTheme.EmotionEditPopUp"></activity>
     </application>
 
 </manifest>

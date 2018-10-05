@@ -1,5 +1,7 @@
 package com.example.joser.jose_feelsbook;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,8 +15,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class EmotionHistoryActivity extends AppCompatActivity {
-    private final String FILENAME = "file.sav";
-    private ArrayList<Emotion> emotions = new ArrayList<Emotion>();
     private ArrayAdapter<Emotion> emotionAdapter;
     private ListView historyList;
 
@@ -34,6 +34,8 @@ public class EmotionHistoryActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 // this will allow the edit pop-up dialog show
+                Intent popup = new Intent(getApplicationContext(), EmotionEditPopUp.class);
+                startActivity(popup);
                 return false;
             }
         });
@@ -43,10 +45,9 @@ public class EmotionHistoryActivity extends AppCompatActivity {
     protected void onStart() {
         // set up the array adapter and the list of emotions to the list
         super.onStart();
-        emotions = FileManagement.loadFromFile(FILENAME, this);
-
-        Collections.sort(emotions, Collections.<Emotion>reverseOrder());
-        emotionAdapter = new ArrayAdapter<Emotion>(this, R.layout.history_item, emotions);
+        Model_Emotion.loadEmotionsFromFile(this);
+        Model_Emotion.sortEmotionbyDate();
+        emotionAdapter = new ArrayAdapter<Emotion>(this, R.layout.history_item, Model_Emotion.emotions);
         historyList.setAdapter(emotionAdapter);
     }
 }

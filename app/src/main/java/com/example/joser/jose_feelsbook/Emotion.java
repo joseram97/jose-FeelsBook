@@ -7,6 +7,7 @@
  * FIGURE OUT IF THERE NEEDS TO BE MORE TO THIS*/
 package com.example.joser.jose_feelsbook;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
@@ -14,7 +15,7 @@ import java.util.TimeZone;
 /**
  * Public class emotion. It will represent the emotion and carry the comments and date of the
  * emotion to be viewed later*/
-public class Emotion implements Comparable<Emotion> {
+public class Emotion implements Comparable<Emotion>, Serializable {
     private Date TimeStamp;
     private String comment;
     private String type; // Can be ANGER, SADNESS, JOY, FEAR, SURPRISE, and LOVE
@@ -79,8 +80,14 @@ public class Emotion implements Comparable<Emotion> {
         // formats were taken from https://developer.android.com/reference/java/text/SimpleDateFormat
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone("MDT"));
-        return "I feel " + this.type + " | " + format.format(this.TimeStamp) +
-                " | \nComment:" + this.comment;
+        if (this.comment.equals("")){
+            return "I feel " + this.type + " | " + format.format(this.TimeStamp);
+        }
+        else {
+            // there is a comment with this emotions
+            return "I feel " + this.type + " | " + format.format(this.TimeStamp) +
+                    " | \nComment:" + this.comment;
+        }
     }
 
 }
