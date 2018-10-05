@@ -7,12 +7,14 @@
  * FIGURE OUT IF THERE NEEDS TO BE MORE TO THIS*/
 package com.example.joser.jose_feelsbook;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Public class emotion. It will represent the emotion and carry the comments and date of the
  * emotion to be viewed later*/
-public class Emotion {
+public class Emotion implements Comparable<Emotion> {
     private Date TimeStamp;
     private String comment;
     private String type; // Can be ANGER, SADNESS, JOY, FEAR, SURPRISE, and LOVE
@@ -56,7 +58,7 @@ public class Emotion {
      * @params Emotion emotion
      * @returns boolean*/
     public boolean Matches(Emotion emotion){
-        if(this.type == emotion.type){
+        if(this.type.equals(emotion.type)) {
             return true;
         }
         else{
@@ -64,8 +66,21 @@ public class Emotion {
         }
     }
 
+    // idea of sorting the emotions taken from
+    // https://stackoverflow.com/questions/5927109/sort-objects-in-arraylist-by-date
+    // 2018-10-04 9:56PM
+    @Override
+    public int compareTo(Emotion o) {
+        return this.getDate().compareTo(o.getDate());
+    }
+
     public String toString() {
-        return "I feel " + this.type + " | " + this.TimeStamp + " | \nComment:" + this.comment;
+        //set up the format string for the date
+        // formats were taken from https://developer.android.com/reference/java/text/SimpleDateFormat
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        format.setTimeZone(TimeZone.getTimeZone("MDT"));
+        return "I feel " + this.type + " | " + format.format(this.TimeStamp) +
+                " | \nComment:" + this.comment;
     }
 
 }

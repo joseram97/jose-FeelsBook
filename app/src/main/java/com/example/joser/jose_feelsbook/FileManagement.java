@@ -17,7 +17,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
- * This class will handle all of the reading and writing of data for files*/
+ * This class will handle all of the reading and writing of data for files located on the android
+ * device
+ */
 public class FileManagement {
 
     /**

@@ -69,6 +69,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         if (emotions == null){
             emotions = new ArrayList<Emotion>();
         }
+        updateButtons("all");
     }
 
     @Override
@@ -82,6 +83,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.AngerButton:
                 Emotion angerEmotion = new Emotion("ANGER", comment);
                 emotions.add(angerEmotion);
+                // get the count of anger emotions and set the text of the button to that
+
                 break;
 
             case R.id.LoveButton:
@@ -118,9 +121,47 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         else{
             // one of the emotion buttons has been pressed and the scroll layout needs to be
             // updated (to update the count and such)
+            updateButtons("all");
             emotionsView.invalidate();
             emotionsView.requestLayout();
             FileManagement.saveInFile(FILENAME, this, emotions);
+        }
+    }
+
+    /**
+     * Update all of the buttons within the scroll view when there are changes within the array
+     */
+    public void updateButtons(String button) {
+        // initialize all the buttons
+        Button angerButton = (Button) findViewById(R.id.AngerButton);
+        Button loveButton = (Button) findViewById(R.id.LoveButton);
+        Button surpriseButton = (Button) findViewById(R.id.SurpriseButton);
+        Button fearButton = (Button) findViewById(R.id.FearButton);
+        Button sadButton = (Button) findViewById(R.id.SadButton);
+        Button joyButton = (Button) findViewById(R.id.JoyButton);
+        Button viewHistory = (Button) findViewById(R.id.HistoryButton);
+
+        Emotion anger = new Emotion("ANGER", "");
+        Emotion sadness = new Emotion("SADNESS", "");
+        Emotion joy = new Emotion("JOY", "");
+        Emotion surprise = new Emotion("SURPRISE", "");
+        Emotion fear = new Emotion("FEAR", "");
+        Emotion love = new Emotion("LOVE", "");
+
+        switch (button){
+            case "all":
+                angerButton.setText("ANGER("+
+                        Integer.toString(FeelsController.countEmotion(anger, emotions)) + ")");
+                sadButton.setText("SAD("+
+                        Integer.toString(FeelsController.countEmotion(sadness, emotions)) + ")");
+                joyButton.setText("JOY("+
+                        Integer.toString(FeelsController.countEmotion(joy, emotions)) + ")");
+                surpriseButton.setText("SURPRISE("+
+                        Integer.toString(FeelsController.countEmotion(surprise, emotions)) + ")");
+                fearButton.setText("FEAR("+
+                        Integer.toString(FeelsController.countEmotion(fear, emotions)) + ")");
+                loveButton.setText("LOVE("+
+                        Integer.toString(FeelsController.countEmotion(love, emotions)) + ")");
         }
     }
 

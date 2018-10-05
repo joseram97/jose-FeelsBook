@@ -2,10 +2,14 @@ package com.example.joser.jose_feelsbook;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class EmotionHistoryActivity extends AppCompatActivity {
@@ -22,6 +26,17 @@ public class EmotionHistoryActivity extends AppCompatActivity {
         // Here this activity will show a list of all of the emotions that have been added to the
         // emotion list
         historyList = (ListView) findViewById(R.id.HistoryEmotions);
+
+        // Idea taken from:
+        // https://stackoverflow.com/questions/8846707/how-to-implement-a-long-click-listener-on-a-listview
+        // 2018-10-04 10:41PM
+        historyList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                // this will allow the edit pop-up dialog show
+                return false;
+            }
+        });
     }
 
     @Override
@@ -29,8 +44,9 @@ public class EmotionHistoryActivity extends AppCompatActivity {
         // set up the array adapter and the list of emotions to the list
         super.onStart();
         emotions = FileManagement.loadFromFile(FILENAME, this);
+
+        Collections.sort(emotions, Collections.<Emotion>reverseOrder());
         emotionAdapter = new ArrayAdapter<Emotion>(this, R.layout.history_item, emotions);
         historyList.setAdapter(emotionAdapter);
-        boolean test = true;
     }
 }
