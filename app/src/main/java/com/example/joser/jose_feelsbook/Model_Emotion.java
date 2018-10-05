@@ -1,6 +1,7 @@
 package com.example.joser.jose_feelsbook;
 
 import android.content.Context;
+import android.widget.ArrayAdapter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -24,6 +25,8 @@ public class Model_Emotion {
     private static final String FILENAME = "file.sav";
     public static ArrayList<Emotion> emotions;
     public static Emotion emotionEdit;
+    public static int emotionEditListPostion;
+    public static ArrayAdapter<Emotion> listAdapter;
 
 
     /**
@@ -68,14 +71,13 @@ public class Model_Emotion {
         }
     }
 
-    public static void EditEmotion(Emotion emotion){
-        int emotionIndex = emotions.indexOf(emotion);
-        emotions.set(emotionIndex, emotion);
+    public static void editEmotion(){
+        emotions.set(emotionEditListPostion, emotionEdit);
     }
 
-    public static void deleteEmotion(Emotion emotion) {
+    public static void deleteEmotion(int index) {
         // remove the emotions from the arraylist
-        emotions.remove(emotion);
+        emotions.remove(index);
     }
 
     public static void sortEmotionbyDate() {

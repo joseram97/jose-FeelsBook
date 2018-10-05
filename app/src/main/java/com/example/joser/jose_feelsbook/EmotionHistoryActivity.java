@@ -15,7 +15,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class EmotionHistoryActivity extends AppCompatActivity {
-    private ArrayAdapter<Emotion> emotionAdapter;
     private ListView historyList;
 
     @Override
@@ -34,7 +33,11 @@ public class EmotionHistoryActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 // this will allow the edit pop-up dialog show
-                Intent popup = new Intent(getApplicationContext(), EmotionEditPopUp.class);
+                // idea taken from:
+                // https://stackoverflow.com/questions/7073577/how-to-get-object-from-listview-in-setonitemclicklistener-in-android
+                Model_Emotion.emotionEdit = (Emotion) parent.getAdapter().getItem(position);
+                Model_Emotion.emotionEditListPostion = position;
+                Intent popup = new Intent(EmotionHistoryActivity.this, EmotionEditPopUp.class);
                 startActivity(popup);
                 return false;
             }
@@ -47,7 +50,7 @@ public class EmotionHistoryActivity extends AppCompatActivity {
         super.onStart();
         Model_Emotion.loadEmotionsFromFile(this);
         Model_Emotion.sortEmotionbyDate();
-        emotionAdapter = new ArrayAdapter<Emotion>(this, R.layout.history_item, Model_Emotion.emotions);
-        historyList.setAdapter(emotionAdapter);
+        Model_Emotion.listAdapter = new ArrayAdapter<Emotion>(this, R.layout.history_item, Model_Emotion.emotions);
+        historyList.setAdapter(Model_Emotion.listAdapter);
     }
 }

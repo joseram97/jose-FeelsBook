@@ -3,10 +3,6 @@ package com.example.joser.jose_feelsbook;
 import java.util.ArrayList;
 
 public class FeelsController {
-    // This will handle all of the edits that each emotion class may handle
-    public static Emotion editEmotion(Emotion emotion) {
-        return emotion;
-    }
 
     /**
      * This function will be used to count how many emotions are within the list of emotions

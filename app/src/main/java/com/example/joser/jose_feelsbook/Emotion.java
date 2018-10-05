@@ -51,6 +51,14 @@ public class Emotion implements Comparable<Emotion>, Serializable {
         return this.comment;
     }
 
+    public void setEmotionType(String type) {
+        this.type = type;
+    }
+
+    public String getEmotionType() {
+        return this.type;
+    }
+
     // Idea taken from https://eclass.srv.ualberta.ca/mod/forum/discuss.php?d=1045897
     // 2018-10-03 6:09PM
     /**
